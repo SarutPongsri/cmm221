@@ -1,0 +1,18 @@
+<!DOCTYPE html> <!-- จะเขียนhtmlละนะ -->
+<html lang="en"> <!-- lang="en" คือ ภาษาหลักของเว็บ = EN -->
+<head>
+	<meta charset="utf-8"> <!-- ชนิดของภาษาเป็นแบบ utf-8 -->
+	<title>CMM 19Pat</title>  <!-- ชื่อหัวเว็บ -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"> 
+
+	<link rel="stylesheet" href="/assets/main.css">
+	{% block stylesheet %}{% endblock %} 
+</head>
+<body>
+
+	{% include 'layout/header.twig' ignore missing %}
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

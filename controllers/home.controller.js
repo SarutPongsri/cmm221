@@ -15,5 +15,29 @@ exports.index = function(req, res) {
 	res.json(content)
 	*/
 
-	res.render('home.twig')
+	let content = {
+		highlight: {
+			url: '/assets/images/home/banner/highlight.jpg',
+			title: 'สวนเลย'
+		},
+		thumbnail: [
+		{
+			url: '/assets/images/home/banner/thumbnail-1.jpg',
+			title: 'คุย'
+		},
+		{
+			url: '/assets/images/home/banner/thumbnail-2.jpg',
+			title: 'กับ'
+		},
+		{
+			url: '/assets/images/home/banner/thumbnail-3.jpg',
+			title: 'เขา'
+		},
+		{
+			url: '/assets/images/home/banner/thumbnail-4.jpg',
+			title: 'ก่อน'
+		}
+		]
+	}
+	res.render('home.twig', content)
 }

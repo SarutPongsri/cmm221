@@ -1,52 +1,26 @@
-<!DOCTYPE html> <!-- จะเขียนhtmlละนะ -->
-<html lang="en"> <!-- lang="en" คือ ภาษาหลักของเว็บ = EN -->
-<head>
-	<meta charset="utf-8"> <!-- ชนิดของภาษาเป็นแบบ utf-8 -->
-	<title>CMM 19Pat</title>  <!-- ชื่อหัวเว็บ -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+{% extends 'layout/base.twig' %}
+{% block stylesheet %}
 	<link rel="stylesheet" href="/assets/home.css">
-</head>
-<body>
-	<header> <!-- logo+nav -->
-		<div class="has-text-centered"> <!-- คิดรไม่ออก ใช้ -->
-			<img src="/assets/images/SPlogoW.jpg" alt="" width="145" height="auto">
-		</div>
-		<nav class="navbar-tabs" > <!-- คำสั่งใช้ "nav"igation -->
-			<a href="#" class="navbar-item">Work</a> <!-- a = กดได้  # = ไม่ไปไหน-->
-			<a href="#" class="navbar-item">Home</a>
-			<a href="#" class="navbar-item">Post</a>
-			<a href="#" class="navbar-item">Activity</a>
-			<a href="#" class="navbar-item">Game</a>
-			<a href="#" class="navbar-item">Page</a>
-			<a href="#" class="navbar-item">Friend</a>
-			<a href="#" class="navbar-item">Register</a>
-		</nav>
-	</header>
-
+{% endblock %}
+{% block content %}
+	
 	<main>
 		<section class="banner">
 			<div class="highlight">
-				<div class="columns">
-					<div class="column highlight-item "> <!--ใช้ is-size-ต่อได้ แต่ใหญ่ไม่เท่าในhome ในhomeปรับขนาดได้มากกว่า-->
-						<h1>สวนเลย</h1>
+				<div class="columns is-marginless">
+					<div class="column highlight-item " style="background-image: url({{ highlight.url }});"> <!--ใช้ is-size-ต่อได้ แต่ใหญ่ไม่เท่าในhome ในhomeปรับขนาดได้มากกว่า-->
+						<h1>{{ highlight.title }}</h1>
 					</div>
 				</div>
 			</div>
 
 			<div class="thumbnail">
 				<div class="columns is-mobile is-marginless"> <!--class="coulumns is-gapless" ismarginless=ทำให้ขอบเก่าหาย-->
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);"> <!-- paddingless=ตัดขอบรูปเล็ก -->
-						What
+					{% for item in thumbnail %}
+					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url({{ item.url }});"> <!-- paddingless=ตัดขอบรูปเล็ก -->
+						{{ item.title }}
 					</div>
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-						The
-					</div>
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-						Fuck
-					</div>
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-						Yeah!!
-					</div>
+					{% endfor %}
 				</div>
 			</div>
 		</section>
@@ -198,3 +172,4 @@
 	</main>
 </body>
 </html>
+{% endblock %}
